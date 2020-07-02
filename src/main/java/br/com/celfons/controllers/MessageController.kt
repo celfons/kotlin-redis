@@ -33,4 +33,9 @@ open class MessageController {
     @ResponseStatus(HttpStatus.ACCEPTED)
     open fun save(@RequestBody @Valid request: MessageRequest): MessageResponse = messageService.save(request)
 
+    @RequestMapping(value = ["external/{id}"], method = [RequestMethod.GET], produces = [APPLICATION_STREAM_JSON_VALUE])
+    @ResponseStatus(HttpStatus.OK)
+    open fun getExternal(@PathVariable("id") id: Long): MessageResponse? = messageService.getExternal(id)
+
+
 }

@@ -5,3 +5,11 @@ services:
     image: redis
     ports:
       - "6379:6379"
+  stubby4j:
+    image: sandokandias/stubby4j-docker
+    ports:
+      - "8883:8883"
+    environment:
+      STUBBY_PORT: 8883
+    volumes:
+      - ./stubby.yml:/usr/local/stubby.yml
